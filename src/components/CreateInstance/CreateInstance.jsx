@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./CreateInstance.module.css";
-
+import config from "../../../config";
 function CreateInstance({ refreshTrigger }) {
   const [courses, setCourses] = useState([]);
   const [selectedCourse, setSelectedCourse] = useState("");
@@ -11,7 +11,7 @@ function CreateInstance({ refreshTrigger }) {
   useEffect(() => {
     async function loadCourses() {
       try {
-        const response = await axios.get("http://localhost:8000/api/courses/");
+        const response = await axios.get(`${config.apiUrl}/courses/`);
         setCourses(response.data);
       } catch (error) {
         console.error("Error fetching courses:", error);
@@ -38,7 +38,7 @@ function CreateInstance({ refreshTrigger }) {
     console.log("instance :", newInstance);
 
     try {
-      await axios.post("http://localhost:8000/api/instances/", newInstance);
+      await axios.post(`${config.apiUrl}/courses/`, newInstance);
 
       setSelectedCourse("");
       setYear("");

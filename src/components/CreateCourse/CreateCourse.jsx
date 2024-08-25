@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import styles from "./CreateCourse.module.css";
-
+import config from "../../../config";
 function CreateCourse({ onCourseCreated }) {
   const [title, setTitle] = useState("");
   const [courseCode, setCourseCode] = useState("");
@@ -13,10 +13,7 @@ function CreateCourse({ onCourseCreated }) {
     const newCourse = { title, course_code: courseCode, description };
 
     try {
-      const response = await axios.post(
-        "http://localhost:8000/api/courses/",
-        newCourse
-      );
+      const response = await axios.post(`${config.apiUrl}/courses/`, newCourse);
 
       if (response.status === 201) {
         setTitle("");

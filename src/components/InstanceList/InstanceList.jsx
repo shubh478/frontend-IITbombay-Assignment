@@ -3,7 +3,7 @@ import axios from "axios";
 import styles from "./InstanceList.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-
+import config from "../../../config";
 function InstanceList() {
   const [year, setYear] = useState("");
   const [semester, setSemester] = useState("");
@@ -19,7 +19,7 @@ function InstanceList() {
 
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/instances/${year}/${semester}/`
+        `${config.apiUrl}/instances/${year}/${semester}/`
       );
       console.log("instanceList:", response);
       setInstances(response.data);
@@ -33,7 +33,7 @@ function InstanceList() {
     console.log("InsitanceID :", instanceId);
     try {
       await axios.delete(
-        `http://localhost:8000/api/instances/${yr}/${sm}/${instanceId}/`
+        `${config.apiUrl}/instances/${yr}/${sm}/${instanceId}/`
       );
       setInstances(instances.filter((instance) => instance.id !== instanceId));
       alert("Course instance deleted successfully");

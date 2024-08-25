@@ -3,7 +3,7 @@ import axios from "axios";
 import styles from "./CourseList.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-
+import config from "../../../config";
 function CourseList({ refreshTrigger }) {
   const [courses, setCourses] = useState([]);
   const [showAllCourse, setShowAllCourse] = useState(false);
@@ -11,7 +11,7 @@ function CourseList({ refreshTrigger }) {
   useEffect(() => {
     async function loadCourses() {
       try {
-        const response = await axios.get("http://localhost:8000/api/courses/");
+        const response = await axios.get(`${config.apiUrl}/courses/`);
         console.log("res :", response);
         setCourses(response.data);
       } catch (error) {
@@ -24,7 +24,7 @@ function CourseList({ refreshTrigger }) {
 
   const handleDelete = async (courseId) => {
     try {
-      await axios.delete(`http://localhost:8000/api/courses/${courseId}/`);
+      await axios.delete(`${config.apiUrl}/courses/${courseId}/`);
       setCourses(courses.filter((course) => course.id !== courseId));
       alert("Course deleted successfully");
     } catch (error) {
