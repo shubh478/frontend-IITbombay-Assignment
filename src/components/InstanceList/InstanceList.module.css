@@ -1,0 +1,127 @@
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.heading {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.input:focus,
+.select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.formGroupContainer {
+  display: flex;
+  gap: 50px;
+}
+
+.deleteButton {
+  display: flex;
+  justify-content: center;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  .heading {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+
+  .input,
+  .select {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .button {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .table {
+    margin-top: 15px;
+  }
+
+  .formGroupContainer {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

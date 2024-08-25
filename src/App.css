@@ -1,0 +1,24 @@
+#root {
+  padding: 2rem;
+}
+.AppContainer {
+  display: flex;
+}
+.line1,
+.line2 {
+  width: 100%;
+  height: 2px;
+  background-color: #b3b3b3;
+  margin: 20px 0;
+}
+@media (max-width: 480px) {
+  .AppContainer {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+  }
+  .line1,
+  .line2 {
+    margin: 5px 0;
+  }
+}
